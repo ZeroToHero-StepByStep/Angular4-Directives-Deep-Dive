@@ -6,7 +6,7 @@ import {Directive, ElementRef, OnInit} from '@angular/core';
 
 export class BasicHighlightDirective implements OnInit {
   constructor( private elementRef: ElementRef) {
-    this.elementRef.nativeElement.style.backgroundColor = 'blue' ;
+  
   }
 
   ngOnInit() {
