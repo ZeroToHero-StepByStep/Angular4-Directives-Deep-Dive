@@ -7,15 +7,15 @@
       </button>
       <br><br>
       <ul class="list-group">
-        <div *ngIf="onlyOdd">
-          <li class="list-group-item"
-              *ngFor="let odd of oddNumbers "
-              [ngClass]="{odd : odd % 2  !== 0}"
-              [ngStyle]="{backgroundColor :odd %2 !== 0 ? 'yellow': 'transparent'}">
-            {{odd}}
-          </li>
+        <div *appUnless="!onlyOdd">
+        <li class="list-group-item"
+        *ngFor="let odd of oddNumbers "
+        [ngClass]="{odd : odd % 2  !== 0}"
+        [ngStyle]="{backgroundColor :odd %2 !== 0 ? 'yellow': 'transparent'}">
+        {{odd}}
+        </li>
         </div>
-        <div *ngIf="!onlyOdd">
+        <div *appUnless="onlyOdd">
           <li class="list-group-item"
               *ngFor="let even of evenNumbers"
               [ngClass]="{odd: even %2 !== 0}"
@@ -23,17 +23,9 @@
             {{even}}
           </li>
         </div>
-        <ng-template [ngIf]="!onlyOdd">
-            <li class="list-group-item"
-                *ngFor="let even of evenNumbers"
-                [ngClass]="{odd: even %2 !== 0}"
-                [ngStyle]="{backgroundColor:even %2 !== 0 ? 'yellow' : 'transparent'}">
-              {{even}}
-            </li>
-        </ng-template>
       </ul>
       <p appBasicHighlight> Style me with basic directive</p>
-      <p appBetterHighlight [defaultColor]="'yellow'"  [highlightColor]="'red'"> Style me with basic directive</p>
+      <p appBetterHighlight [defaultColor]="'yellow'" [highlightColor]="'red'"> Style me with basic directive</p>
     </div>
   </div>
 </div>
